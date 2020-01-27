@@ -1,23 +1,29 @@
 import React from "react";
+import { Text, View, StyleSheet } from "react-native";
 
-import { Text, Button } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const HomeScreen = props => {
   return (
-    <>
+    <View style={styles.container}>
       <Text>Home Screen</Text>
-      <Button
-        title="Go to Dashboard"
-        onPress={() => props.navigation.navigate("Dashboard", { id: 241 })}
-      />
-      <Button
-        title="Go to Account"
-        onPress={() =>
-          props.navigation.navigate("Account", { username: "bee" })
-        }
-      />
-    </>
+    </View>
   );
 };
+
+HomeScreen.navigationOptions = () => {
+  return {
+    tabBarIcon: () => <Icon name="home" size={25} />
+  };
+};
+
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    height: 400,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
 
 export default HomeScreen;
